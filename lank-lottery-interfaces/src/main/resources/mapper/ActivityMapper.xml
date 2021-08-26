@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lank.lottery.dao.ActivityMapper">
+  <resultMap id="BaseResultMap" type="com.lank.lottery.po.Activity">
+    <!--@mbg.generated-->
+    <!--@Table activity-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="activityId" jdbcType="BIGINT" property="activityId" />
+    <result column="activityName" jdbcType="VARCHAR" property="activityName" />
+    <result column="activityDesc" jdbcType="VARCHAR" property="activityDesc" />
+    <result column="beginDateTime" jdbcType="TIMESTAMP" property="beginDateTime" />
+    <result column="endDateTime" jdbcType="TIMESTAMP" property="endDateTime" />
+    <result column="stockCount" jdbcType="INTEGER" property="stockCount" />
+    <result column="takeCount" jdbcType="INTEGER" property="takeCount" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, activityId, activityName, activityDesc, beginDateTime, endDateTime, stockCount, 
+    takeCount, `state`, creator, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lank.lottery.po.Activity" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into activity (activityId, activityName, activityDesc, 
+      beginDateTime, endDateTime, stockCount, 
+      takeCount, `state`, creator, 
+      createTime, updateTime)
+    values (#{activityId,jdbcType=BIGINT}, #{activityName,jdbcType=VARCHAR}, #{activityDesc,jdbcType=VARCHAR}, 
+      #{beginDateTime,jdbcType=TIMESTAMP}, #{endDateTime,jdbcType=TIMESTAMP}, #{stockCount,jdbcType=INTEGER}, 
+      #{takeCount,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lank.lottery.po.Activity" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        activityId,
+      </if>
+      <if test="activityName != null">
+        activityName,
+      </if>
+      <if test="activityDesc != null">
+        activityDesc,
+      </if>
+      <if test="beginDateTime != null">
+        beginDateTime,
+      </if>
+      <if test="endDateTime != null">
+        endDateTime,
+      </if>
+      <if test="stockCount != null">
+        stockCount,
+      </if>
+      <if test="takeCount != null">
+        takeCount,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+      <if test="updateTime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="activityName != null">
+        #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="activityDesc != null">
+        #{activityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDateTime != null">
+        #{beginDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDateTime != null">
+        #{endDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stockCount != null">
+        #{stockCount,jdbcType=INTEGER},
+      </if>
+      <if test="takeCount != null">
+        #{takeCount,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lank.lottery.po.Activity">
+    <!--@mbg.generated-->
+    update activity
+    <set>
+      <if test="activityId != null">
+        activityId = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="activityName != null">
+        activityName = #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="activityDesc != null">
+        activityDesc = #{activityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="beginDateTime != null">
+        beginDateTime = #{beginDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDateTime != null">
+        endDateTime = #{endDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stockCount != null">
+        stockCount = #{stockCount,jdbcType=INTEGER},
+      </if>
+      <if test="takeCount != null">
+        takeCount = #{takeCount,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lank.lottery.po.Activity">
+    <!--@mbg.generated-->
+    update activity
+    set activityId = #{activityId,jdbcType=BIGINT},
+      activityName = #{activityName,jdbcType=VARCHAR},
+      activityDesc = #{activityDesc,jdbcType=VARCHAR},
+      beginDateTime = #{beginDateTime,jdbcType=TIMESTAMP},
+      endDateTime = #{endDateTime,jdbcType=TIMESTAMP},
+      stockCount = #{stockCount,jdbcType=INTEGER},
+      takeCount = #{takeCount,jdbcType=INTEGER},
+      `state` = #{state,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

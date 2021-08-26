@@ -1,0 +1,8 @@
+# Project exclude paths
+/lank-lottery-application/target/
+/lank-lottery-common/target/
+/lank-lottery-domain/target/
+/lank-lottery-infrastructure/target/
+/lank-lottery-interfaces/target/
+/lank-lottery-rpc/target/
+/lank-lottery-test/target/
